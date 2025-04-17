@@ -8,6 +8,8 @@ public class Robo
     private int X;
     private int Y;
     private Direcao Face;
+    private int LimiteX;
+    private int LimiteY;
 
     public Direcao GetFace() { return Face; }
     public int GetX() { return X; }
@@ -33,11 +35,18 @@ public class Robo
     {
         switch (Face)
         {
-            case Direcao.N : Y += 1;break;
-            case Direcao.S : Y -= 1;break;
-            case Direcao.L : X += 1;break;
-            case Direcao.O : X -= 1;break;
-            
+            case Direcao.N :
+                if (Y < LimiteY) {Y += 1;}
+                break;
+            case Direcao.S :
+                if (Y > 0) {Y -= 1;} {Y -= 1;}
+                break;
+            case Direcao.L :
+                if (X < LimiteX) {X += 1;}
+                break;
+            case Direcao.O :
+                if(X > 0) {X -= 1;}
+                break;
         }
         
     }
@@ -52,7 +61,7 @@ public class Robo
         else { Face = Direcao.O; }
     }
     
-    public void Criar(string cordenadas)
+    public void PosicionarRobo(string cordenadas)
     {
         string[] s = cordenadas.Split(" ");
 
@@ -61,5 +70,17 @@ public class Robo
         
         Enum.TryParse<Direcao>(s[2], out Face);
         
+    }
+
+    public void CriarLimites(string tamanho)
+    {
+        string[] s = tamanho.Split(" ");
+        LimiteX = Convert.ToInt32(s[0]);
+        LimiteY = Convert.ToInt32(s[1]);
+    }
+
+    public void LocalizarRobo()
+    {
+        Console.WriteLine($"{X} {Y} {Face}");
     }
 }

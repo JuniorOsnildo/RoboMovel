@@ -1,7 +1,10 @@
 ﻿using RoboMovel;
-//Grade grade = new Grade();
+
+Console.WriteLine("");
+
+Grade grade = new Grade();
 
 Robo robo = new Robo();
 
-robo.Criar("2 3 N");
+robo.PosicionarRobo("2 3 N");
 

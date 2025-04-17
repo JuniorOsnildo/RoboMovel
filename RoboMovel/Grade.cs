@@ -8,7 +8,7 @@ public class Grade()
     {
         string[] s = ij.Split(' ');
         
-        Grid = new Robo?[Convert.ToInt32(s[0]), Convert.ToInt32(s[1])];
+        Grid = new Robo?[Convert.ToInt32(s[0])+1, Convert.ToInt32(s[1])+1];
     }
 
     public void AddRobo(Robo robo)
